@@ -1,0 +1,11 @@
+cart content: 5
+cart overlay: 3
+
+category list: 3
+sort list: 3
+
+menu content: 1
+menu button: 2
+menu overlay: 1
+
+loading: 20
