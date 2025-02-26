@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { clearUser } from "../../features/userSlice";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebase";
 
 export default function Menu({ isMenuOpen, setIsMenuOpen }){
+    const user = useSelector(state => state.user)
+    console.log(user)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const handleLogout = async() => {
+        try {
+            setIsMenuOpen(false);
+            await signOut(auth);
+            navigate('/register')
+        } catch(err){
+            console.log(err);
+        }
+    }
+
     return (
         <>
             <button 
@@ -24,9 +43,18 @@ export default function Menu({ isMenuOpen, setIsMenuOpen }){
                 <ul id="menu-content" className={`flex flex-col items-start gap-3 ml-5 mt-16`}>
                     <li>About</li>
                     <li>Contacts</li>
-                    <Link to='/sign-up' onClick={() => setIsMenuOpen(false)}>
-                        <li>Sign up</li>
+                    <Link to='/wishlist'>
+                        <li>Wishlist</li>
                     </Link>
+                    {user.uid ? (
+                        <button className='cursor-pointer' onClick={handleLogout}>
+                            <li>Logout</li>
+                        </button>
+                    ) : (
+                        <Link to='/register' onClick={() => setIsMenuOpen(false)}>
+                            <li>Sign up</li>
+                        </Link>
+                    )}
                 </ul>
             </div>
         </>

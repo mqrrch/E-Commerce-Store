@@ -5,7 +5,7 @@ export default function MainLayout() {
     return (
         <>
             <Navbar />
-            <div className="py-18 px-8 flex flex-col gap-4">
+            <div className="py-18 px-5 flex flex-col gap-4">
                 <Outlet />
             </div>
         </>

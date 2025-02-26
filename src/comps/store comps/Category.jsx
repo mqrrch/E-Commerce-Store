@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react"
-import useFetchCategories from "../hooks/useFetchCategories";
+import useFetchCategories from "../../hooks/useFetchCategories";
 import { useDispatch, useSelector } from "react-redux";
-import { setCategory } from "../features/categorySlice";
+import { setCategory } from "../../features/categorySlice";
 
 export default function Category(){
     const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -46,7 +46,7 @@ export default function Category(){
 
     return (
         <div>
-            <div className="relative rounded-full mx-auto select-none" ref={dropdownRef}>
+            <div className="relative rounded-full mx-auto select-none bg-white" ref={dropdownRef}>
                 <button
                     onClick={() => setIsCategoryOpen(!isCategoryOpen)}
                     className="w-full rounded-full py-2 px-4 select-none border-1 border-gray-500 focus:outline-none cursor-pointer"

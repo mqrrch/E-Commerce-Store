@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"
-import useFetchProducts from '../hooks/useFetchProducts'
+import useFetchProducts from '../../hooks/useFetchProducts'
 import Category from "./Category"
 import Sort from "./Sort"
 import { useDispatch, useSelector } from "react-redux"
 import { useMemo } from "react"
-import { clearSearch } from "../features/searchSlice"
+import { clearSearch } from "../../features/searchSlice"
 
 export default function ProductList(){
     // Get products from the API
@@ -85,14 +85,17 @@ export default function ProductList(){
                             key={product.id} 
                             to={`/product/${product.id}`}
                         >
-                            <div className="flex flex-col shadow-lg rounded-2xl p-4 gap-4 cursor-pointer">
+                            <div className="flex flex-col shadow-lg rounded-2xl p-4 gap-4 cursor-pointer bg-white">
                                 <div className="w-full h-[130px] overflow-hidden flex justify-center items-center select-none">
                                     <img src={product.image} className="max-w-full max-h-full object-contain"></img>
                                 </div>
                                 <div className="">
-                                    <p className="leading-[20px] overflow-ellipsis whitespace-pre-wrap line-clamp-2">
-                                        {product.title}
-                                    </p>
+                                    <div className="flex gap-2 justify-between">
+                                        <p className="leading-[20px] overflow-ellipsis whitespace-pre-wrap line-clamp-2">
+                                            {product.title}
+                                        </p>
+                                        <i className='bx bx-heart text-2xl hover:text-red-500'></i>
+                                    </div>
                                     <p className="text-lg font-semibold">{product.price}$</p>
                                     <div className="flex items-center gap-1 text-sm">
                                         <i className='bx bxs-star text-yellow-400'></i>

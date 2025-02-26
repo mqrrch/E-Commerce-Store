@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import { setSort } from "../features/sortSlice";
+import { setSort } from "../../features/sortSlice";
 
 export default function Sort(){
     const [isSortOpen, setIsSortOpen] = useState(false);
@@ -41,7 +41,7 @@ export default function Sort(){
 
     return (
         <div>
-            <div className="relative rounded-full mx-auto select-none" ref={dropdownRef}>
+            <div className="relative rounded-full mx-auto select-none bg-white" ref={dropdownRef}>
                 <button
                     onClick={() => setIsSortOpen(!isSortOpen)}
                     className="w-full rounded-full py-2 px-4 select-none focus:outline-none border-1 border-gray-500 cursor-pointer"

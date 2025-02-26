@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react"
-import { setSearch } from "../features/searchSlice";
+import { setSearch } from "../../features/searchSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Search(){
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchName, setSearchName] = useState("");
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(setSearch(searchName));
+        navigate('/');
     }
 
     return(
@@ -20,7 +23,7 @@ export default function Search(){
             {isSearchOpen && (
                 <form 
                     onSubmit={handleSubmit}
-                    className="fixed top-16 left-1/2 transform -translate-x-1/2 w-[90%] text flex items-center pl-2 bg-white border-1 border-gray-500 rounded-2xl" 
+                    className="fixed top-14 left-1/2 transform -translate-x-1/2 w-[90%] text flex items-center pl-2 bg-white border-1 border-gray-500 rounded-2xl" 
                     autoComplete="off"
                 >
                     <label className='bx bx-search-alt-2 text-gray-500' htmlFor="search-input"></label>

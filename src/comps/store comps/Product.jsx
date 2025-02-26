@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import useFetchSingleProduct from "../hooks/useFetchSingleProduct";
-import { useSelector } from "react-redux";
+import useFetchSingleProduct from "../../hooks/useFetchSingleProduct";
+import { useDispatch, useSelector } from "react-redux";
+import { addCartItemAsync } from "../../features/asyncThunks";
 
 export default function Product(){
     // Set count state for the quantity of products
@@ -9,6 +10,9 @@ export default function Product(){
     // Get the id from the URL and fetch the data of that product from the API
     const { id } = useParams();
     const data = useFetchSingleProduct(id);
+    const dispatch = useDispatch();
+
+    const isCartLoading = useSelector(state => state.cart.status);
     
     // If theres no data yet or its still loading, goes into the loading element
     const isLoading = useSelector(state => state.loading.loading)
@@ -29,6 +33,17 @@ export default function Product(){
         const value = Number(e.target.value);
         // Change the count if its more than 1, but if its less than count then set it to 1
         setCount(value < 1 ? 1 : value);
+    }
+
+    const handleAddToCart = async () => {
+        const itemData = {
+            itemId: data.id,
+            itemTitle: data.title,
+            itemPrice: data.price,
+            itemQuantity: count,
+            itemImage: data.image,
+        }
+        dispatch(addCartItemAsync(itemData))
     }
 
     return (
@@ -93,7 +108,10 @@ export default function Product(){
                     <div className="flex justify-center items-center w-[90px] h-[40px] border-2 border-green-500 rounded-lg cursor-pointer">
                         <p>Buy</p>
                     </div>
-                    <div className="flex justify-center items-center w-[90px] h-[40px] bg-green-500 text-white rounded-lg cursor-pointer">
+                    <div 
+                        onClick={handleAddToCart}
+                        className="flex justify-center items-center w-[90px] h-[40px] bg-green-500 text-white rounded-lg cursor-pointer"
+                    >
                         <i className='bx bx-plus'></i>
                         <p className="mr-2">Cart</p>
                     </div>
