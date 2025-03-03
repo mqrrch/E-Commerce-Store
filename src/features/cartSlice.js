@@ -1,9 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { 
-    addCartItemAsync,
-    removeCartItemAsync,
-    updateCartQuantityAsync,
- } from "./asyncThunks";
+import { addCartItemAsync, removeCartItemAsync, updateCartQuantityAsync } from "./cartAsyncThunks";
 
 const initialState = {
     cartItems: [],

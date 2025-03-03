@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react"
-import useFetchCategories from "../../hooks/useFetchCategories";
+import useFetchData from "../../hooks/useFetchData";
 import { useDispatch, useSelector } from "react-redux";
 import { setCategory } from "../../features/categorySlice";
 
@@ -12,7 +12,7 @@ export default function Category(){
     function capitalizeFirstLetter(val) {
         return String(val).charAt(0).toUpperCase() + String(val).slice(1);
     }
-    const fetchCategories = useFetchCategories();
+    const fetchCategories = useFetchData('products/categories');
     const categories = ['All', ...fetchCategories].map(category => capitalizeFirstLetter(category));
 
     // Ref for the dropdown to detect outside clicks
@@ -45,8 +45,8 @@ export default function Category(){
     }, [isCategoryOpen]);
 
     return (
-        <div>
-            <div className="relative rounded-full mx-auto select-none bg-white" ref={dropdownRef}>
+        <>
+            <div className="relative rounded-full mx-auto select-none bg-white w-full" ref={dropdownRef}>
                 <button
                     onClick={() => setIsCategoryOpen(!isCategoryOpen)}
                     className="w-full rounded-full py-2 px-4 select-none border-1 border-gray-500 focus:outline-none cursor-pointer"
@@ -75,6 +75,6 @@ export default function Category(){
                     </div>
                 )}
             </div>
-        </div>
+        </>
     )
 }

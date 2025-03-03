@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from './comps/store comps/Navbar'
-import ProductList from './comps/store comps/ProductList'
-import Product from './comps/store comps/Product'
+import ProductList from './comps/store comps/product/ProductList'
+import Product from './comps/store comps/product/Product'
 import { useDispatch, useSelector } from 'react-redux'
 import { auth } from './firebase'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -10,12 +9,12 @@ import './App.css'
 import MainLayout from './comps/store comps/MainLayout'
 import { clearUser, setUser } from './features/userSlice'
 import AuthTemplate from './comps/authentication/AuthTemplate'
-import CartPage from './comps/store comps/CartPage'
-import Wishlist from './comps/store comps/Wishlist'
+import CartPage from './comps/store comps/cart/CartPage'
+import Wishlist from './comps/store comps/wishlist/Wishlist'
 
 function App() {
-  const isLoading = useSelector(state => state.loading.loading)
-  const dispatch = useDispatch()
+  const isLoading = useSelector(state => state.loading.loadingCounter > 0);
+  const dispatch = useDispatch();
 
   // Listen for changes in user auth
   useEffect(() => {
@@ -29,11 +28,11 @@ function App() {
             email: user.email,
             phoneNumber: user.phoneNumber,
             photoURL: user.photoURL,
-        }
-        dispatch(setUser(serializableUser))
+        };
+        dispatch(setUser(serializableUser));
       } else{
-        dispatch(clearUser())
-      }
+        dispatch(clearUser());
+      };
     });
     // Cleanup (remove the listener when component unmounts)
     return unsubscribe;
@@ -42,9 +41,6 @@ function App() {
   return (
     <BrowserRouter basename='/E-Commerce-Store/'>
       <div>
-        <div className='fixed top-0 left-0 w-full h-screen z-[-2] bg-slate-200'>
-
-        </div>
         {isLoading && (
           <div className='fixed top-0 left-0 w-full h-screen z-20 bg-white flex justify-center items-center'>
             <p>Loading . . .</p>

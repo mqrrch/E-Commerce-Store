@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
-import { removeCartItemAsync, updateCartQuantityAsync } from "../../features/asyncThunks";
+import { removeCartItemAsync, updateCartQuantityAsync } from "../../../features/cartAsyncThunks";
 import { Link } from "react-router-dom";
 
 export default function CartItem({ id, itemId, itemTitle, itemPrice, itemQuantity, itemImage}){
@@ -22,11 +22,8 @@ export default function CartItem({ id, itemId, itemTitle, itemPrice, itemQuantit
     }
 
     const handleChange = (value) => {
-        // If theres a change from the input, it sets the value to number instead of string
         const intValue = Number(value);
         setQuantity(intValue);
-        // Change the count if its more than 1, but if its less than count then set it to 1
-        // setQuantity(intValue < 1 ? 1 : intValue);
     }
 
     const handleBlur = () => {
@@ -46,7 +43,7 @@ export default function CartItem({ id, itemId, itemTitle, itemPrice, itemQuantit
         <div className="flex relative gap-4 w-[280px] h-[100px] bg-white p-2 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
             <div
                 onClick={handleRemove} 
-                className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 flex justify-center items-center text-center rounded-full cursor-pointer"
+                className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 flex justify-center items-center text-center rounded-full cursor-pointer select-none"
             >
                 <i className="bx bx-x ml-[.25px] text-white text-sm"></i>
             </div>

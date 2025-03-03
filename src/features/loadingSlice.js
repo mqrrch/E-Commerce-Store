@@ -1,18 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    loading: false
+    loadingCounter: 0,
 };
 
 export const loadingSlice = createSlice({
     name: 'loading',
     initialState,
     reducers: {
-        setLoading: (state, action) => {
-            state.loading = action.payload
+        startLoading: (state) => {
+            state.loadingCounter += 1;
+        },
+        endLoading: (state) => {
+            state.loadingCounter = Math.max(0, state.loadingCounter - 1);
+        },
+        resetLoading: (state) => {
+            state.loadingCounter = 0;
         }
     }
 })
 
-export const { setLoading } = loadingSlice.actions;
+export const { startLoading, endLoading, resetLoading } = loadingSlice.actions;
 export const loadingReducer = loadingSlice.reducer;

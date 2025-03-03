@@ -40,8 +40,8 @@ export default function Sort(){
     }, [isSortOpen]);
 
     return (
-        <div>
-            <div className="relative rounded-full mx-auto select-none bg-white" ref={dropdownRef}>
+        <>
+            <div className="relative rounded-full mx-auto select-none bg-white w-full" ref={dropdownRef}>
                 <button
                     onClick={() => setIsSortOpen(!isSortOpen)}
                     className="w-full rounded-full py-2 px-4 select-none focus:outline-none border-1 border-gray-500 cursor-pointer"
@@ -70,6 +70,6 @@ export default function Sort(){
                     </div>
                 )}
             </div>
-        </div>
+        </>
     )
 }

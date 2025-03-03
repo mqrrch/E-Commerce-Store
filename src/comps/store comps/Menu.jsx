@@ -1,14 +1,11 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { clearUser } from "../../features/userSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../../firebase";
 
 export default function Menu({ isMenuOpen, setIsMenuOpen }){
-    const user = useSelector(state => state.user)
-    console.log(user)
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
+    const user = useSelector(state => state.user);
+    const navigate = useNavigate();
 
     const handleLogout = async() => {
         try {
@@ -41,17 +38,11 @@ export default function Menu({ isMenuOpen, setIsMenuOpen }){
                 className={`fixed top-0 left-0 h-full flex flex-col z-[1] bg-white w-[80%] ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
             >
                 <ul id="menu-content" className={`flex flex-col items-start gap-3 ml-5 mt-16`}>
-                    <li>About</li>
-                    <li>Contacts</li>
-                    <Link to='/wishlist'>
-                        <li>Wishlist</li>
-                    </Link>
+                    <li onClick={() => navigate('/wishlist')} className="cursor-pointer">Wishlist</li>
                     {user.uid ? (
-                        <button className='cursor-pointer' onClick={handleLogout}>
-                            <li>Logout</li>
-                        </button>
+                        <li onClick={handleLogout} className="cursor-pointer">Logout</li>
                     ) : (
-                        <Link to='/register' onClick={() => setIsMenuOpen(false)}>
+                        <Link to='/register'>
                             <li>Sign up</li>
                         </Link>
                     )}

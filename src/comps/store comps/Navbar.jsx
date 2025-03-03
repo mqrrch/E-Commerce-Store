@@ -2,8 +2,7 @@ import { useState } from "react"
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import Search from "./Search";
-import Cart from "./Cart";
-import Wishlist from "./Wishlist";
+import CartHandler from "./cart/CartHandler";
 
 export default function Navbar(){
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,7 +17,7 @@ export default function Navbar(){
             </div>
             <div className="flex items-center gap-3 mr-4">
                 <Search />
-                <Cart />
+                <CartHandler />
             </div>
         </nav>
     )

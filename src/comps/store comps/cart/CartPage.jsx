@@ -8,7 +8,7 @@ export default function CartPage(){
     const totalPrice = cartItems.reduce((sum, item) => sum + item.itemPrice * item.itemQuantity, 0).toFixed(2)
 
     return(
-        <div className="pb-10">
+        <div className="pb-24">
             <h2 className="text-xl font-bold">My cart</h2>
             <div className="grid grid-cols-1 w-full gap-3 mt-4">
                 {cartItems.length <= 0 && 
@@ -21,10 +21,7 @@ export default function CartPage(){
                         </div>
                         <p>Oops, theres nothing in this cart!</p>
                         <Link to='/' className="mb-2">
-                            <button
-                                onClick={() => setIsCartOpen(false)}
-                                className="p-2 px-4 border-2 border-green-500 rounded-2xl text-green-700 font-semibold select-none cursor-pointer hover:bg-green-200 transition-colors duration-300"
-                            >
+                            <button className="p-2 px-4 border-2 border-green-500 rounded-2xl text-green-700 font-semibold select-none cursor-pointer hover:bg-green-200 transition-colors duration-300">
                                 Start Shopping
                             </button>
                         </Link>
