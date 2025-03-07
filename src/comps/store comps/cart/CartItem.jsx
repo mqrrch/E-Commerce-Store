@@ -40,7 +40,7 @@ export default function CartItem({ id, itemId, itemTitle, itemPrice, itemQuantit
     }
 
     return (
-        <div className="flex relative gap-4 w-[280px] h-[100px] bg-white p-2 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+        <div className="flex relative gap-4 w-full lg:max-w-[500px] h-[100px] bg-white p-2 rounded-xl shadow-lg">
             <div
                 onClick={handleRemove} 
                 className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 flex justify-center items-center text-center rounded-full cursor-pointer select-none"

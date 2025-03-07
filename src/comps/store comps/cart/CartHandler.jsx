@@ -22,7 +22,8 @@ export default function CartHandler(){
                 onClick={() => setIsCartOpen(false)} 
                 className={`fixed top-0 left-0 h-screen w-full bg-black transition-opacity duration-500 z-[3] ${isCartOpen ? 'opacity-50' : 'opacity-0 pointer-events-none'}`}
             ></div>
-            <div className={`fixed flex flex-col justify-center items-center gap-4 bottom-0 left-0 w-full transition-all duration-500 bg-white z-[5] h-[80%] p-8 ${isCartOpen ? 'translate-y-0' : 'translate-y-full'}`}>
+            <div className={`fixed flex flex-col justify-center items-center gap-4 bottom-0 left-0 w-full transition-all duration-500 bg-white z-[5] h-full max-h-[400px] p-8 md:max-h-[360px] md:max-w-[400px] md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2 md:rounded-xl md:shadow-lg ${isCartOpen ? 'translate-y-0 md:opacity-100 md:scale-100' : 'translate-y-full md:translate-y-full md:opacity-0 md:scale-95'}`}>
+                <i className="bx bx-x absolute top-2 right-2 text-2xl cursor-pointer" onClick={() => setIsCartOpen(false)}></i>
                 <div className="max-w-[120px]">
                     <img
                         className="w-full h-auto" 

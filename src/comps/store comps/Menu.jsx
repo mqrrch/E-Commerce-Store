@@ -35,7 +35,7 @@ export default function Menu({ isMenuOpen, setIsMenuOpen }){
             <div 
                 id="menu" 
                 onClick={e => e.stopPropagation()}
-                className={`fixed top-0 left-0 h-full flex flex-col z-[1] bg-white w-[80%] ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                className={`fixed top-0 left-0 h-full flex flex-col z-[1] bg-white w-[80%] max-w-[200px] md:max-w-[280px] ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
             >
                 <ul id="menu-content" className={`flex flex-col items-start gap-3 ml-5 mt-16`}>
                     <li onClick={() => navigate('/wishlist')} className="cursor-pointer">Wishlist</li>

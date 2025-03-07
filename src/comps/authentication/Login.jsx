@@ -35,7 +35,7 @@ export default function Login(){
 
     return(
         <form
-            className="flex flex-col mt-12"
+            className="flex flex-col"
             onSubmit={handleSubmit}
         >
             <h3 className="text-center text-xl font-semibold">Log in with:</h3>
@@ -54,7 +54,7 @@ export default function Login(){
                     required
                 />
                 <label
-                    className="absolute -top-[7px] left-6 text-xs bg-white text-gray-500 px-1 transition-all duration-300 z-0 peer-placeholder-shown:text-base peer-placeholder-shown:top-[9px] peer-placeholder-shown:left-2.5 peer-placeholder-shown:z-[-2] peer-focus:text-xs peer-focus:-top-[7px] peer-focus:left-6 peer-focus:z-0"
+                    className="absolute -top-[7px] left-6 text-xs bg-white text-gray-500 px-1 transition-all duration-300 peer-placeholder-shown:text-base peer-placeholder-shown:top-[9px] peer-placeholder-shown:left-2.5 peer-focus:text-xs peer-focus:-top-[7px] peer-focus:left-6"
                     htmlFor="login-email"
                 >
                     Email
@@ -72,7 +72,7 @@ export default function Login(){
                     required
                 />
                 <label
-                    className="absolute -top-[7px] left-6 text-xs bg-white text-gray-500 px-1 transition-all duration-300 z-0 peer-placeholder-shown:text-base peer-placeholder-shown:top-[9px] peer-placeholder-shown:left-2.5 peer-placeholder-shown:z-[-2] peer-focus:text-xs peer-focus:-top-[7px] peer-focus:left-6 peer-focus:z-0"
+                    className="absolute -top-[7px] left-6 text-xs bg-white text-gray-500 px-1 transition-all duration-300  peer-placeholder-shown:text-base peer-placeholder-shown:top-[9px] peer-placeholder-shown:left-2.5 peer-focus:text-xs peer-focus:-top-[7px] peer-focus:left-6"
                     htmlFor="login-password"
                 >
                     Password

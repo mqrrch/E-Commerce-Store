@@ -8,7 +8,7 @@ export default function Wishlist(){
     return(
         <>
             <h2 className="text-xl font-bold">My wishlist</h2>
-            <div className="grid grid-cols-1 gap-3 w-full">
+            <div className="flex flex-col gap-3 w-full">
                 {wishlistItems.length <= 0 &&
                     <div className="bg-white rounded-xl shadow-lg p-4 flex flex-col justify-center items-center gap-4">
                         <div className="max-w-[120px] select-none">
