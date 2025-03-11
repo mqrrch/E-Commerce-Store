@@ -14,7 +14,7 @@ export default function CartHandler(){
     
     return(
         <>
-            <a className="text-2xl cursor-pointer" onClick={cartItems && cartItems.length > 0 ? changePage : () => setIsCartOpen(true)}>
+            <a className="navbar-btn text-2xl cursor-pointer" onClick={cartItems && cartItems.length > 0 ? changePage : () => setIsCartOpen(true)}>
                 <i className='bx bx-cart'></i>
             </a>
             <div 

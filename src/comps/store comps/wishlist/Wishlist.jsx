@@ -7,8 +7,16 @@ export default function Wishlist(){
 
     return(
         <>
-            <h2 className="text-xl font-bold">My wishlist</h2>
-            <div className="flex flex-col gap-3 w-full">
+            <h2
+                id="wishlist-title"
+                className="text-xl font-bold"
+            >
+                My wishlist
+            </h2>
+            <div
+                id="wishlist-items"
+                className="grid gap-3 w-full"
+            >
                 {wishlistItems.length <= 0 &&
                     <div className="bg-white rounded-xl shadow-lg p-4 flex flex-col justify-center items-center gap-4">
                         <div className="max-w-[120px] select-none">
@@ -17,9 +25,9 @@ export default function Wishlist(){
                                 src="https://images.tokopedia.net/img/purchase-platform/illustration/empty-state-pp.png" 
                             />
                         </div>
-                        <p>You dont wishlist anything yet!</p>
+                        <p className="wishlist-item-text">You dont wishlist anything yet!</p>
                         <Link to='/' className="mb-2">
-                            <button className="p-2 px-4 border-2 border-green-500 rounded-2xl text-green-700 font-semibold select-none cursor-pointer hover:bg-green-200 transition-colors duration-300">
+                            <button className="wishlist-item-text p-2 px-4 border-2 border-green-500 rounded-2xl text-green-700 font-semibold select-none cursor-pointer hover:bg-green-200 transition-colors duration-300">
                                 Start Shopping
                             </button>
                         </Link>

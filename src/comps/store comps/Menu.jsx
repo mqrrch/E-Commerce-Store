@@ -42,9 +42,7 @@ export default function Menu({ isMenuOpen, setIsMenuOpen }){
                     {user.uid ? (
                         <li onClick={handleLogout} className="cursor-pointer">Logout</li>
                     ) : (
-                        <Link to='/register'>
-                            <li>Sign up</li>
-                        </Link>
+                        <li onClick={() => navigate('/register')} className="cursor-pointer">Sign up</li>
                     )}
                 </ul>
             </div>

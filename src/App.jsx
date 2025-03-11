@@ -43,7 +43,7 @@ function App() {
       <div>
         {isLoading && (
           <div className='fixed top-0 left-0 w-full h-screen z-20 bg-white flex justify-center items-center'>
-            <p>Loading . . .</p>
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
           </div>
         )}
         <Routes>

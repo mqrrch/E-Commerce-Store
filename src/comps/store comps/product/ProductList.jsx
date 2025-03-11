@@ -57,7 +57,7 @@ export default function ProductList(){
                             </div>
                             <div className="">
                                 <div className="flex gap-2 justify-between">
-                                    <p className="leading-[20px] overflow-ellipsis whitespace-pre-wrap line-clamp-2">
+                                    <p className="product-list-title leading-[20px] overflow-ellipsis whitespace-pre-wrap line-clamp-2">
                                         {product.title}
                                     </p>
                                     <i
@@ -73,11 +73,11 @@ export default function ProductList(){
                                                 itemImage: product.image,
                                             }))
                                         }}
-                                        className={`bx ${wishlistMap.has(String(product.id)) ? 'bxs-heart text-red-500 hover:text-red-400' : 'bx-heart hover:text-red-500'} text-2xl select-none`}
+                                        className={`product-list-wishlist bx ${wishlistMap.has(String(product.id)) ? 'bxs-heart text-2xl text-red-500 hover:text-red-400' : 'bx-heart hover:text-red-500'} select-none`}
                                     ></i>
                                 </div>
-                                <p className="text-lg font-semibold">{product.price}$</p>
-                                <div className="flex items-center gap-1 text-sm">
+                                <p className="product-list-price font-semibold text-lg">{product.price}$</p>
+                                <div className="product-list-rating text-sm flex items-center gap-1">
                                     <i className='bx bxs-star text-yellow-400'></i>
                                     <p>{product.rating.rate}</p>
                                     <p className="text-gray-500">({product.rating.count})</p>

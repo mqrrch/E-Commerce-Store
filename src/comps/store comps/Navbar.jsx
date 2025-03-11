@@ -11,7 +11,7 @@ export default function Navbar(){
         <nav className="fixed flex justify-between md:justify-start md:gap-8 top-0 w-full select-none bg-white z-50 shadow-lg">
             <div className="flex">
                 <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
-                <Link to='/' className="text-xl text-center text-green-500 self-center font-bold">
+                <Link to='/' id="navbar-logo" className="text-center text-xl text-green-500 self-center font-bold">
                     <h2>Shop2Go</h2>
                 </Link>
             </div>

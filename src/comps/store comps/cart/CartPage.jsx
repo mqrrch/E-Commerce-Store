@@ -12,7 +12,7 @@ export default function CartPage(){
             <div className="max-w-[1000px] mx-auto">
                 <h2 className="text-xl font-bold">My cart</h2>
                 {cartItems.length <= 0 && 
-                    <div className="bg-white w-full lg:max-w-[700px] rounded-xl shadow-lg p-4 flex flex-col justify-center items-center gap-4 mt-5">
+                    <div className="bg-white w-full rounded-xl shadow-lg p-4 flex flex-col justify-center items-center gap-4 mt-5">
                         <div className="max-w-[120px] select-none">
                             <img
                                 className="w-full h-auto" 
